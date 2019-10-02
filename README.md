@@ -71,3 +71,12 @@ Now we are ready to provide the code all essential variables and addresses to be
 [EU_SERVICE_ACCOUNT_NAME] = (Optional) [service_name]
 [EU_SERVICE_ACCOUNT_FILE] = (Optional) Name of your service account JSON key you downloaded. If you are using multiple regions.
 ```
+
+### Deploying
+Now the application can be deployed. Use the Goolgle Cloud SDK to deploy. Remember to select the correct project. [This](https://cloud.google.com/appengine/docs/standard/python/getting-started/deploying-the-application) resource can be helpful.
+```
+gcloud app deploy
+```
+
+## Multi-Region
+Due to data security in production applications, it is essential to keep data of each continent e.g. US and EU, in their respective regions. In order to acheive this, we have a common GAE application (since, GAE does not store sensitive data) but keep separate projects for both regions. For the second reagion you will need separate service accounts, thus providing different JSON keys. Remeber to refer them accordingly in the config.py file.
