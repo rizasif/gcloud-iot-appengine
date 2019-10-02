@@ -8,6 +8,7 @@ Google Iot Core makes use of several Google Cloud Integrations. This project aim
 The application, once deployed can perform the following functions. Returns in text/plain format.
 
 * Create new registry:
+A registry indicates an group of devices. This project assumes that each user has only one kind of device and they all transmit the same data. Therefore, only one registry is created. [REGISTRY_NAME] can be any alphanumeric string.
 ```
 curl -X POST -d "registry=[REGISTRY_NAME]&region=['us' or 'eu']" [URL]/accounts
 ```
@@ -18,11 +19,13 @@ curl -X GET [URL]/accounts?registry=[REGISTRY_NAME]
 ```
 
 * Create new device:
+Inorder to create a new device, you will need to upload an RSA -x509 key. It is recommended to generate the key on the Iot device through OpenSSL. [This](https://cloud.google.com/iot/docs/how-tos/credentials/keys) resource can be useful.
 ```
 curl -X PUT -F data=@[PATH_TO_PUBLIC_KEY] -F registry=[REGISTRY_NAME] -F device=[DEVICE_NAME] [URL]/accounts
 ```
 
 * Fetch telemetry data for device:
+Only limited amount of data can be fetched from Cloud Iot i.e 0 < [NUMBER_OF_STAES] <= 10.
 ```
 curl -X GET "[URL]/data?registry=[REGISTRY_NAME]&states=[NUMBER_OF_STAES]&device=[DEVICE_NAME]"
 ```
@@ -80,3 +83,6 @@ gcloud app deploy
 
 ## Multi-Region
 Due to data security in production applications, it is essential to keep data of each continent e.g. US and EU, in their respective regions. In order to acheive this, we have a common GAE application (since, GAE does not store sensitive data) but keep separate projects for both regions. For the second reagion you will need separate service accounts, thus providing different JSON keys. Remeber to refer them accordingly in the config.py file.
+
+## Testing
+The `testing/goo.py` can be used to simulate an IOT device on any linux PC and send rendom data to the system. Fill in the required variables and you are good to go!
