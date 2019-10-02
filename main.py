@@ -23,7 +23,7 @@ from internal.util import decode64, get_region_from_user, validate_region, get_r
 class Data(webapp2.RequestHandler):
     def get(self):
         """Fetches telemetry data for a paticular device.
-        curl -X GET "[URL]/data?registry=[REGISTRY_NAME]&states=[NUMBER_OF_STAES]&device=[DEVICE_NAME]" """
+        curl -X GET "[URL]/data?registry=[REGISTRY_NAME]&states=[NUMBER_OF_STATES]&device=[DEVICE_NAME]" """
         dev =  self.request.get('device')
         reg =  self.request.get('registry')
         states = self.request.get('states')

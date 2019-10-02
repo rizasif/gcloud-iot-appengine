@@ -25,9 +25,9 @@ curl -X PUT -F data=@[PATH_TO_PUBLIC_KEY] -F registry=[REGISTRY_NAME] -F device=
 ```
 
 * Fetch telemetry data for device:
-Only limited amount of data can be fetched from Cloud Iot i.e 0 < [NUMBER_OF_STAES] <= 10.
+Only limited amount of data can be fetched from Cloud Iot i.e 0 < [NUMBER_OF_STATES] <= 10.
 ```
-curl -X GET "[URL]/data?registry=[REGISTRY_NAME]&states=[NUMBER_OF_STAES]&device=[DEVICE_NAME]"
+curl -X GET "[URL]/data?registry=[REGISTRY_NAME]&states=[NUMBER_OF_STATES]&device=[DEVICE_NAME]"
 ```
 
 ## Getting Started
