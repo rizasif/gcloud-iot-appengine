@@ -15,18 +15,25 @@ class IOT:
         else:
             return get_client(config.service_file_us, config.service_name_us)
 
+    def get_project_id_by_region(self, region):
+        if region == config.cloud_regions[config.cloud_region_eu]:
+            return config.project_id_eu
+        else:
+            return config.project_id_us
+
     def create_registry(self, region, topic="default"):
         """Creates registry in the google cloud iot core
         --Inputs--
         region: The server region of cloud iot core.
         topic: The name of the topic for telemetry, also the name of the registry"""
         client = self.get_client_by_region(region)
+        project_id = self.get_project_id_by_region(region)
         registry_parent = 'projects/{}/locations/{}'.format(
-                config.project_id,
+                project_id,
                 region)
         body = {
             'eventNotificationConfigs': [{
-                'pubsubTopicName': "projects/{}/topics/{}".format(config.project_id,topic)
+                'pubsubTopicName': "projects/{}/topics/{}".format(project_id,topic)
             }],
             'id': topic
         }
@@ -47,8 +54,9 @@ class IOT:
         certificate: The public RSA -x509 key of the device
         region: The server region of cloud iot core."""
         client = self.get_client_by_region(region)
+        project_id = self.get_project_id_by_region(region)
         registry_name = 'projects/{}/locations/{}/registries/{}'.format(
-        config.project_id, region, registry)
+        project_id, region, registry)
 
         # Note: You can have multiple credentials associated with a device.
         device_template = {
@@ -75,8 +83,9 @@ class IOT:
         states: Number of telemetry data to be fetched
         region: The server region of cloud iot core."""
         client = self.get_client_by_region(region)
+        project_id = self.get_project_id_by_region(region)
         registry_name = 'projects/{}/locations/{}/registries/{}'.format(
-                config.project_id, region, registry)
+                project_id, region, registry)
 
         device_name = '{}/devices/{}'.format(registry_name, device_id)
         devices = client.projects().locations().registries().devices()

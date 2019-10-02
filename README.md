@@ -61,12 +61,12 @@ In order to allow GAE to access the Core Iot we have to create a service account
 ### Configure Project
 Now we are ready to provide the code all essential variables and addresses to be deployed. In `internal/config.py` fill in the following variables (assuming we are using a USA region server).
 ```
-[PROJECT_NAME] = [project_id]
-
+[PROJECT_NAME_US] = [project_id]
 [US_SERVER_ID] = The region name of your project e.g. us-central1
 [US_SERVICE_ACCOUNT_NAME] = [service_name]
 [US_SERVICE_ACCOUNT_FILE] = Name of your service account JSON key you downloaded.
 
+[PROJECT_NAME_EU] = (Optional) [project_id] for EU region if being used.
 [EU_SERVER_NAME] = (Optional) The region name of your project, if you are using multiple regions e.g. europe-central1
 [EU_SERVICE_ACCOUNT_NAME] = (Optional) [service_name]
 [EU_SERVICE_ACCOUNT_FILE] = (Optional) Name of your service account JSON key you downloaded. If you are using multiple regions.
