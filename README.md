@@ -1,6 +1,8 @@
 # gcloud-iot-appengine
 A project to easily deploy a google clout Iot application on google app engine.
 
+[Tutorial here](https://blog,rizasif.com/iot-appengine)
+
 ## Introduction
 Google Iot Core makes use of several Google Cloud Integrations. This project aims to provide a simplified system to create registries and devices of Core Iot using Google App Engine (GAE).
 
@@ -8,7 +10,7 @@ Google Iot Core makes use of several Google Cloud Integrations. This project aim
 The application, once deployed can perform the following functions. Returns in text/plain format.
 
 * Create new registry:
-A registry indicates an group of devices. This project assumes that each user has only one kind of device and they all transmit the same data. Therefore, only one registry is created. [REGISTRY_NAME] can be any alphanumeric string.
+A registry indicates a group of devices. This project assumes that each user has only one kind of device and they all transmit the same data. Therefore, only one registry is created. [REGISTRY_NAME] can be any alphanumeric string.
 ```
 curl -X POST -d "registry=[REGISTRY_NAME]&region=['us' or 'eu']" [URL]/accounts
 ```
