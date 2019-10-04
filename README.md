@@ -1,7 +1,7 @@
 # gcloud-iot-appengine
 A project to easily deploy a google clout Iot application on google app engine.
 
-[Tutorial here](https://blog,rizasif.com/iot-appengine)
+[See Tutorial here](https://blog.rizasif.com/iot-appengine)
 
 ## Introduction
 Google Iot Core makes use of several Google Cloud Integrations. This project aims to provide a simplified system to create registries and devices of Core Iot using Google App Engine (GAE).
