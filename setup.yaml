@@ -1,5 +1,5 @@
-- gcloud app create
-- gcloud components install app-engine-python
-- gcloud services enable pubsub.googleapis.com
-- gcloud services enable runtimeconfig.googleapis.com
-- gcloud services enable cloudiot.googleapis.com
+gcloud app create
+gcloud components install app-engine-python
+gcloud services enable pubsub.googleapis.com
+gcloud services enable runtimeconfig.googleapis.com
+gcloud services enable cloudiot.googleapis.com
