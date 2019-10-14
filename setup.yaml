@@ -1,4 +1,4 @@
-gcloud app create
+gcloud app create --region=us-central
 gcloud services enable pubsub.googleapis.com
 gcloud services enable runtimeconfig.googleapis.com
 gcloud services enable cloudiot.googleapis.com
